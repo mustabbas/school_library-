@@ -8,9 +8,9 @@ This project for build school library using Ruby.
 
 ## Getting Started
 
-Download the ZIP from this [Link](https://github.com/mustabbas/school_library), or run the following git command to clone the files to your machine:
+Download the ZIP from this [Link](https://github.com/mustabbas/school_library-), or run the following git command to clone the files to your machine:
 
-git clone https://github.com/mustabbas/school_library.git
+git clone https://github.com/mustabbas/school_library-.git
 
 ## Authors
 
@@ -24,7 +24,7 @@ git clone https://github.com/mustabbas/school_library.git
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/mustabbas/school_library/issues).
+Feel free to check the [issues page](https://github.com/mustabbas/school_library-/issues).
 
 ## Show your support
 
