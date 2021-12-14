@@ -30,6 +30,3 @@ class Person
 
   private :of_age?
 end
-
-person1 = Person.new(18, 'mustafadddddddddsdfsfdf')
-puts person1.validate_name
