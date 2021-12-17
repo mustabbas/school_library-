@@ -11,7 +11,7 @@ def add_student
   puts 'Has parent permission (Y/N)'
   has_permission = gets.chomp
   has_permission = has_permission == 'y'
-  student = Student.new(age, '', name, has_permission)
+  student = Student.new(age, '', name, parent_permission: has_permission)
   puts 'Student created successfully'
   student
 end
