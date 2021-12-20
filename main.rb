@@ -3,39 +3,45 @@ require './person'
 require './rental'
 require './student'
 require './teacher'
-def add_student
-  puts 'Name'
-  name = gets.chomp
-  puts 'Age'
-  age = gets.chomp
-  puts 'Has parent permission (Y/N)'
-  has_permission = gets.chomp
-  has_permission = has_permission == 'y'
-  student = Student.new(age, '', name, parent_permission: has_permission)
-  puts 'Student created successfully'
-  student
+class Add_student
+  def add_student
+    puts 'Name'
+    name = gets.chomp
+    puts 'Age'
+    age = gets.chomp
+    puts 'Has parent permission (Y/N)'
+    has_permission = gets.chomp
+    has_permission = has_permission == 'y'
+    student = Student.new(age, '', name, parent_permission: has_permission)
+    puts 'Student created successfully'
+    student
+  end
 end
 
-def add_teacher
-  puts 'Name'
-  name = gets.chomp
-  puts 'Age'
-  age = gets.chomp
-  puts 'Specialization'
-  specialization = gets.chomp
-  teacher = Teacher.new(age, specialization, name, parent_permission: nil)
-  puts 'Teacher created successfully'
-  teacher
+class Add_teacher
+  def add_teacher
+    puts 'Name'
+    name = gets.chomp
+    puts 'Age'
+    age = gets.chomp
+    puts 'Specialization'
+    specialization = gets.chomp
+    teacher = Teacher.new(age, specialization, name, parent_permission: nil)
+    puts 'Teacher created successfully'
+    teacher
+  end
 end
 
-def add_person
-  puts 'Do you want to create a student (1) or a teacher (2)'
-  number = gets.chomp
-  case number
-  when '1'
-    add_student
-  when '2'
-    add_teacher
+class Add_person
+  def add_person
+    puts 'Do you want to create a student (1) or a teacher (2)'
+    number = gets.chomp
+    case number
+    when '1'
+      add_student = Add_student.new().add_student
+    when '2'
+      add_teacher = Add_teacher.new().add_teacher
+    end
   end
 end
 
