@@ -38,32 +38,36 @@ class Add_person
     number = gets.chomp
     case number
     when '1'
-      add_student = Add_student.new().add_student
+      add_student = Add_student.new.add_student
     when '2'
-      add_teacher = Add_teacher.new().add_teacher
+      add_teacher = Add_teacher.new.add_teacher
     end
   end
 end
 
-def list_all_people(people)
-  people.each_with_index do |p, i|
-    if p.is_a?(Student)
-      puts "#{i + 1}- [Student] Name : #{p.name} , Age : #{p.age}, Id: #{p.id} "
-    else
-      puts "#{i + 1}- [Teacher] Name : #{p.name} , Age : #{p.age}, Id: #{p.id}"
+class List_All_People
+  def list_all_people(people)
+    people.each_with_index do |p, i|
+      if p.is_a?(Student)
+        puts "#{i + 1}- [Student] Name : #{p.name} , Age : #{p.age}, Id: #{p.id} "
+      else
+        puts "#{i + 1}- [Teacher] Name : #{p.name} , Age : #{p.age}, Id: #{p.id}"
+      end
     end
   end
 end
 
-def add_book
-  puts 'Title: '
-  title = gets.chomp
-  puts 'Author: '
-  author = gets.chomp
+class AddBook
+  def add_book
+    puts 'Title: '
+    title = gets.chomp
+    puts 'Author: '
+    author = gets.chomp
 
-  book = Book.new(title, author)
-  puts 'Book created successfully!'
-  book
+    book = Book.new(title, author)
+    puts 'Book created successfully!'
+    book
+  end
 end
 
 def list_all_books(books)
@@ -72,20 +76,22 @@ def list_all_books(books)
   end
 end
 
-def add_rental(people, books)
-  puts 'Select a person from the following'
-  list_all_people(people)
-  p_index = gets.chomp
-  puts 'Select a book from the following'
-  list_all_books(books)
-  b_index = gets.chomp
+class AddRental
+  def add_rental(people, books)
+    puts 'Select a person from the following'
+    List_All_People.new.list_all_people(people)
+    p_index = gets.chomp
+    puts 'Select a book from the following'
+    list_all_books(books)
+    b_index = gets.chomp
 
-  puts 'Date : '
-  date = gets.chomp
+    puts 'Date : '
+    date = gets.chomp
 
-  rental = Rental.new(date, people[p_index.to_i - 1], books[b_index.to_i - 1])
-  puts 'Rental created successfully'
-  rental
+    rental = Rental.new(date, people[p_index.to_i - 1], books[b_index.to_i - 1])
+    puts 'Rental created successfully'
+    rental
+  end
 end
 
 def list_rental_for_person_id(rentals)
@@ -112,15 +118,15 @@ def condition(num, people, books, rentals)
   when '1'
     list_all_books(books)
   when '2'
-    list_all_people(people)
+    List_All_People.new.list_all_people(people)
   when '3'
-    person = add_person
+    person = Add_person.new.add_person
     people << person
   when '4'
-    book = add_book
+    book = AddBook.new.add_book
     books << book
   when '5'
-    rental = add_rental(people, books)
+    rental = AddRental.new.add_rental(people, books)
     rentals << rental
   when '6'
     list_rental_for_person_id(rentals)
