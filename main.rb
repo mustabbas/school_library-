@@ -3,7 +3,7 @@ require './person'
 require './rental'
 require './student'
 require './teacher'
-class Add_student
+class AddStudent
   def add_student
     puts 'Name'
     name = gets.chomp
@@ -18,7 +18,7 @@ class Add_student
   end
 end
 
-class Add_teacher
+class AddTeacher
   def add_teacher
     puts 'Name'
     name = gets.chomp
@@ -32,20 +32,20 @@ class Add_teacher
   end
 end
 
-class Add_person
+class AddPerson
   def add_person
     puts 'Do you want to create a student (1) or a teacher (2)'
     number = gets.chomp
     case number
     when '1'
-      add_student = Add_student.new.add_student
+      AddStudent.new.add_student
     when '2'
-      add_teacher = Add_teacher.new.add_teacher
+      AddTeacher.new.add_teacher
     end
   end
 end
 
-class List_All_People
+class ListPeople
   def list_all_people(people)
     people.each_with_index do |p, i|
       if p.is_a?(Student)
@@ -79,7 +79,7 @@ end
 class AddRental
   def add_rental(people, books)
     puts 'Select a person from the following'
-    List_All_People.new.list_all_people(people)
+    ListPeople.new.list_all_people(people)
     p_index = gets.chomp
     puts 'Select a book from the following'
     list_all_books(books)
@@ -118,9 +118,9 @@ def condition(num, people, books, rentals)
   when '1'
     list_all_books(books)
   when '2'
-    List_All_People.new.list_all_people(people)
+    ListPeople.new.list_all_people(people)
   when '3'
-    person = Add_person.new.add_person
+    person = AddPerson.new.add_person
     people << person
   when '4'
     book = AddBook.new.add_book
