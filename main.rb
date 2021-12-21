@@ -3,8 +3,8 @@ require './person'
 require './rental'
 require './student'
 require './teacher'
-class AddStudent
-  def add_student
+class GetStudent
+  def get_student
     puts 'Name'
     name = gets.chomp
     puts 'Age'
@@ -12,21 +12,33 @@ class AddStudent
     puts 'Has parent permission (Y/N)'
     has_permission = gets.chomp
     has_permission = has_permission == 'y'
-    student = Student.new(age, '', name, parent_permission: has_permission)
-    puts 'Student created successfully'
-    student
+    return [name, age, has_permission]
   end
 end
 
-class AddTeacher
-  def add_teacher
+class AddStudent
+  def add_student(student)
+    student = Student.new(student[1], '', student[0], parent_permission: student[2])
+  puts 'Student created successfully'
+  student
+  end
+end
+
+class GetTeacher
+  def get_teacher
     puts 'Name'
     name = gets.chomp
     puts 'Age'
     age = gets.chomp
     puts 'Specialization'
     specialization = gets.chomp
-    teacher = Teacher.new(age, specialization, name, parent_permission: nil)
+    return [name, age, specialization]
+  end
+end
+
+class AddTeacher
+  def add_teacher(teacher)
+    teacher = Teacher.new(teacher[1], teacher[2], teacher[0], parent_permission: nil)
     puts 'Teacher created successfully'
     teacher
   end
@@ -38,9 +50,11 @@ class AddPerson
     number = gets.chomp
     case number
     when '1'
-      AddStudent.new.add_student
+     student = GetStudent.new.get_student
+     AddStudent.new().add_student(student)
     when '2'
-      AddTeacher.new.add_teacher
+     teacher = GetTeacher.new.get_teacher
+     AddTeacher.new().add_teacher(teacher)
     end
   end
 end
