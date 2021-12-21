@@ -3,6 +3,7 @@ require './book_logic'
 require './student_logic'
 require './teacher_logic'
 require './person_logic'
+require './store_data'
 
 def choose_list
   puts 'Please choose on option by enterin a number',
@@ -44,6 +45,7 @@ def check(num)
     condition(num, people, books, rentals)
     num = choose_list
   end
+  store_data(people, books, rentals)
 end
 
 def main
