@@ -7,8 +7,8 @@ require './store_people'
 require './read_people'
 # require './store_books'
 # require './read_books'
-# require './store_rentals'
-# require './read_rentals'
+require './store_rentals'
+require './read_rentals'
 
 def choose_list
   puts 'Please choose on option by enterin a number',
