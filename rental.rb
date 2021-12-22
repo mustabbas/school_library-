@@ -10,4 +10,8 @@ class Rental
     @book = book
     book.rental << self
   end
+
+  def to_json(*)
+    { date: @date, person: @person, book: @book }.to_json
+  end
 end

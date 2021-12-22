@@ -3,7 +3,7 @@ require './rental'
 class AddRental
   def add_rental(people, books)
     puts 'Select a person from the following'
-    ListPeople.new.list_all_people(people)
+    ListPeople.list_all_people(people)
     p_index = gets.chomp
     puts 'Select a book from the following'
     list_all_books(books)

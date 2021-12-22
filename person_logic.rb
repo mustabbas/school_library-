@@ -17,7 +17,7 @@ class AddPerson
 end
 
 class ListPeople
-  def list_all_people(people)
+  def self.list_all_people(people)
     people.each_with_index do |p, i|
       if p.is_a?(Student)
         puts "#{i + 1}- [Student] Name : #{p.name} , Age : #{p.age}, Id: #{p.id} "

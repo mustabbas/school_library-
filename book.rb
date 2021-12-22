@@ -7,4 +7,8 @@ class Book
     @author = author
     @rental = []
   end
+
+  def to_json(*)
+    { title: @title, author: @author, rental: [] }.to_json
+  end
 end

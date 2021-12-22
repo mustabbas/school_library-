@@ -16,4 +16,8 @@ class Student < Person
     @classroom = classroom
     classroom.students << self unless classroom.students.include?(self)
   end
+
+  def to_json(*)
+    { age: @age, classroom: @classroom, name: @name, rental: [] }.to_json
+  end
 end

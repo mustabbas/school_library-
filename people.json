@@ -1,1 +1,6 @@
-["#<Student:0x00007fbee0811950>"]
+[
+  {"age":"20","classroom":"","name":"Mat","rental":[]},
+  {"age":"42","specialization":"Maths","name":"Marta","rental":[]},
+  {"age":"20","classroom":"","name":"Thom","rental":[]},
+  {"age":"49","specialization":"Maths","name":"Josh","rental":[]}
+]

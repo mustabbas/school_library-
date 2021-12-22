@@ -3,7 +3,12 @@ require './book_logic'
 require './student_logic'
 require './teacher_logic'
 require './person_logic'
-require './store_data'
+require './store_people'
+require './read_people'
+# require './store_books'
+# require './read_books'
+# require './store_rentals'
+# require './read_rentals'
 
 def choose_list
   puts 'Please choose on option by enterin a number',
@@ -22,7 +27,7 @@ def condition(num, people, books, rentals)
   when '1'
     list_all_books(books)
   when '2'
-    ListPeople.new.list_all_people(people)
+    ListPeople.list_all_people(people)
   when '3'
     person = AddPerson.new.add_person
     people << person
@@ -41,11 +46,16 @@ def check(num)
   people = []
   books = []
   rentals = []
+  read_people(people) if File.exist?('./people.json')
+  read_books(books) if File.exist?('./books.json')
+  read_rentals(rentals) if File.exist?('./rentals.json')
   while num != '7'
     condition(num, people, books, rentals)
     num = choose_list
   end
-  store_data(people, books, rentals)
+  store_people(people)
+  store_books(books)
+  store_rentals(rentals)
 end
 
 def main
