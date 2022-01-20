@@ -4,7 +4,7 @@ This project for build school library using Ruby.
 
 ## Built With
 
--  Ruby
+- Ruby
 
 ## Getting Started
 
@@ -20,8 +20,9 @@ Use Ruby main.rb to run the program
 - GitHub: [@githubhandle](https://github.com/mustabbas)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mustabbas/)
 
-
 ## 🤝 Contributing
+
+- **Ramiro Aquistapace**
 
 Contributions, issues, and feature requests are welcome!
 
@@ -34,3 +35,4 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
+
